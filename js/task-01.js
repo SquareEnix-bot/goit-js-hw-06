@@ -1,4 +1,4 @@
-const mainList = document.getElementById('categories');
+const mainList = document.querySelector('#categories');
 
 console.log('---task 1---');
 
@@ -14,7 +14,8 @@ const task2 = (value) => {
   [...masterList]
     .forEach((innerList) => {    
     console.log(`Category: ${innerList.querySelector('h2').textContent}`);    
-    console.log(`Elements: ${innerList.querySelectorAll('li').length}`);         
+    console.log(`Elements: ${innerList.querySelectorAll('li').length}`); 
+    console.log('');        
   })    
 };
 task2(mainList);
@@ -32,7 +33,9 @@ const findByIndex = (value, key) => {
   console.log('Category: ', wantedItem.querySelector('h2').textContent);
 
   wantedItem.querySelectorAll('li');
-  console.log('Elements: ', wantedItem.querySelectorAll('li').length);    
+  console.log('Elements: ', wantedItem.querySelectorAll('li').length);   
+  
+  console.log(''); 
 }
 // ! вийшло шось непонятне
 
