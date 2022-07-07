@@ -11,7 +11,7 @@ console.log(' ');
 console.log('---task 2--- v.1.0');
 const task2 = (value) => {
   const masterList = Object.values(value.children); 
-  [...masterList]
+  return [...masterList]
     .forEach((innerList) => {    
     console.log(`Category: ${innerList.querySelector('h2').textContent}`);    
     console.log(`Elements: ${innerList.querySelectorAll('li').length}`); 

@@ -20,30 +20,50 @@ mainList.style.display = "flex";
 mainList.style.flexWrap = "wrap";
 mainList.style.gap = "50px";
 
-const createGallery = (imgArray, list) => {
-  const itemsGallery = imgArray
-    .map((element) =>
-      `<li class="gallery__item">
-      <img class="gallery__img" src="${element.url}"      
-      alt="${element.alt}">
-    </li>
-    `)
-    .join("");   
-  return list.insertAdjacentHTML("beforeend", itemsGallery);
-}
+// * спроба зробити по конспекту
 
-createGallery(images, mainList);
+// const createGalleryMarkup = (imgArray, list) => {
+//   const itemsGallery = [...imgArray]
+//     .map((element) =>
+//       `<li class="gallery__item">
+//       <img class="gallery__img" src="${element.url}"      
+//       alt="${element.alt}">
+//     </li>
+//     `)
+//     .join("");   
+//   return list.insertAdjacentHTML("beforeend", itemsGallery);
+// }
 
+// createGalleryMarkup(images, mainList);
+
+// * по Репеті
+
+const createImageMarkup = ({url, alt}) => {  
+  return `<li class="gallery__item">
+            <img class="gallery__img" src="${url}"      
+            alt="${alt}">
+          </li>
+          `
+};
+
+const createGalleryMarkup = images
+  .map(createImageMarkup)
+  .join('');
+console.log('createGalleryMarkup: ', createGalleryMarkup);
+
+mainList.insertAdjacentHTML("beforeend", createGalleryMarkup);
+
+// оформлення галереї
 const listItem = mainList.querySelectorAll('.gallery__item');
 
-[...listItem].forEach((element) => {
+[...listItem].map((element) => {
   element.style.marginLeft = "auto";
   element.style.marginRight = "auto";
 });
 
 const itemImg = mainList.querySelectorAll('.gallery__img');
 
-[...itemImg].forEach((element) => {
+[...itemImg].map((element) => {
   element.style.width = "300px";
   element.style.height = "200px";  
   element.style.display = "block";  
