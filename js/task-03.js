@@ -49,7 +49,6 @@ const createImageMarkup = ({url, alt}) => {
 const createGalleryMarkup = images
   .map(createImageMarkup)
   .join('');
-console.log('createGalleryMarkup: ', createGalleryMarkup);
 
 mainList.insertAdjacentHTML("beforeend", createGalleryMarkup);
 
