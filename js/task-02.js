@@ -10,13 +10,15 @@ const ingredients = [
 const mainList = document.querySelector('#ingredients');
 
 const createEl = (array, list) => {
-  return array.map((element) => {    
+  const itemList = [];
+  array.map((element) => {    
     const newItem = document.createElement("li");
     newItem.textContent = element;
     newItem.classList.add('item');
-    list.append(newItem);     
-    return element;
-  });  
+    itemList.push(newItem);      
+  });     
+  list.append(...itemList);
+  return itemList;
 }
 
 createEl(ingredients, mainList);
